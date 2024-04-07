@@ -33,6 +33,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.11"
+    }
 }
 
 dependencies {
@@ -45,4 +51,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    //////////////
+    val composeBom = platform("androidx.compose:compose-bom:2024.03.00")
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+    implementation("androidx.compose.foundation:foundation")
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation(libs.androidx.activity.compose)
+    implementation("androidx.compose.material:material")
 }
